@@ -25,11 +25,10 @@ public class ProcessadorBoletoTest {
 
     @Test
     public void testGerarUmPagamento() {
-        Fatura fatura = new Fatura(Date.from(Instant.now()), 1000.0, "Luiz");
         List<Boleto> boletos = new ArrayList<>();
         Boleto boleto = new Boleto("codigo", Date.from(Instant.now()), 10.0);
         boletos.add(boleto);
-        List<Pagamento> pagamentos = processador.gerarPagamentos(fatura, boletos);
+        List<Pagamento> pagamentos = processador.gerarPagamentos(boletos);
         Assertions.assertEquals(1, pagamentos.size());
         Assertions.assertEquals(boleto.getValorPago(), pagamentos.get(0).getValorPago());
     }
