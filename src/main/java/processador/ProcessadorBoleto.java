@@ -16,7 +16,9 @@ public class ProcessadorBoleto {
     }
 
     public void gerarPagamentosEValidarFatura(Fatura fatura, List<Boleto> boletos) {
-        gerarPagamentos(fatura, boletos);
-        fatura.setPaga(true);
+        Double totalPago = gerarPagamentos(fatura, boletos).stream()
+                .map(Pagamento::getValorPago)
+                .reduce(0.0, Double::sum);
+        fatura.setPaga(totalPago >= fatura.getValorTotal());
     }
 }
