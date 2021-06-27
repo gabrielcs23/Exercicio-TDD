@@ -17,5 +17,6 @@ public class ProcessadorBoleto {
 
     public void gerarPagamentosEValidarFatura(Fatura fatura, List<Boleto> boletos) {
         gerarPagamentos(fatura, boletos);
+        fatura.setPaga(true);
     }
 }
