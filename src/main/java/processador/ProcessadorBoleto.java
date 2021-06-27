@@ -2,11 +2,13 @@ package processador;
 
 import pagamento.Pagamento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessadorBoleto {
 
     public List<Pagamento> gerarPagamentos() {
-        return null;
+        List<Pagamento> pagamentos = new ArrayList<>();
+        return pagamentos;
     }
 }
