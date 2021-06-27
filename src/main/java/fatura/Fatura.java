@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Fatura {
 
-    private Date data;
-    private double valorTotal;
-    private String nomeCliente;
-    private boolean pagamentoConcluido;
+    private final Date data;
+    private final double valorTotal;
+    private final String nomeCliente;
+    private boolean paga;
 
     public Fatura(Date data, double valorTotal, String nomeCliente) {
         this.data = data;
@@ -27,11 +27,11 @@ public class Fatura {
         return nomeCliente;
     }
 
-    public boolean isPagamentoConcluido() {
-        return pagamentoConcluido;
+    public boolean isPaga() {
+        return paga;
     }
 
-    public void setPagamentoConcluido(boolean pagamentoConcluido) {
-        this.pagamentoConcluido = pagamentoConcluido;
+    public void setPaga(boolean paga) {
+        this.paga = paga;
     }
 }

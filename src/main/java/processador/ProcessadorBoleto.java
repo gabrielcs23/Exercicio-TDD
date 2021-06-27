@@ -14,4 +14,8 @@ public class ProcessadorBoleto {
                 .map(boleto -> new Pagamento(boleto.getValorPago(), boleto.getData(), "BOLETO"))
                 .collect(Collectors.toList());
     }
+
+    public void gerarPagamentosEValidarFatura(Fatura fatura, List<Boleto> boletos) {
+        gerarPagamentos(fatura, boletos);
+    }
 }
