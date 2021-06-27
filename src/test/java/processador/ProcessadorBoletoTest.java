@@ -46,4 +46,15 @@ public class ProcessadorBoletoTest {
         Assertions.assertTrue(fatura.isPaga());
     }
 
+    @Test
+    public void testNaoPagarUmaFaturaPorCompleto() {
+        Fatura fatura = new Fatura(Date.from(Instant.now()), 2000.0, "Luiz");
+        List<Boleto> boletos = Arrays.asList(
+                new Boleto("codigo", Date.from(Instant.now()), 500.0),
+                new Boleto("codigo", Date.from(Instant.now()), 400.0)
+        );
+        processador.gerarPagamentosEValidarFatura(fatura, boletos);
+        Assertions.assertFalse(fatura.isPaga());
+    }
+
 }
